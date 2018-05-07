@@ -10,6 +10,16 @@ const app = express();
 //Load Routes
 const auth = require('./routes/auth');
 
+//Load Keys
+const keys = require('./config/keys');
+
+//Map Global Promises
+mongoose.Promise = global.Promise
+//Mongoose Connect
+mongoose.connect(keys.mongoURI)
+    .then( () => console.log('MongoDB Connected'))
+    .catch(err => console.log(err));
+
 app.get('/', (req, res) => {
     res.send('It Works!')
 })
@@ -17,7 +27,7 @@ app.get('/', (req, res) => {
 //Use Routes
 app.use('/auth', auth);
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000 
 
 app.listen(port, () => {
     console.log(`server started on ${port}`)

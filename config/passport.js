@@ -5,8 +5,8 @@ const keys = require('./keys');
 module.exports = function(passport) {
     passport.use(
         new GoogleStratey({
-            clientID: keys.googleClientID,
-            clientSecret: keys.googleClientSecret,
+            clientID: keys.googleClientID || keys.googleClientID,
+            clientSecret: keys.googleClientSecret || keys.googleClientSecret,
             callbackURL: '/auth/google/callback',
             proxy: true
         }, (accessToken, refreshToken, profile, done) => {
