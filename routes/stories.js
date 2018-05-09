@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 });
 
 //Show Single Story
-router.get('/show:id', (req, res) => {
+router.get('/show/:id', (req, res) => {
     Story.findOne({
         _id: req.params.id
     })
@@ -29,7 +29,7 @@ router.get('/show:id', (req, res) => {
         res.render('stories/show', {
             story: story
         });
-    })
+    }).catch(err => console.log(err))
 });
 
 //Add Stories Form
