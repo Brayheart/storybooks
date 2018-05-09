@@ -5,14 +5,19 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser');
 
-//Load User Model
+//Load Models
 require('./models/users');
+require('./models/Story');
 
 //Passport Config
 require('./config/passport')(passport);
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 //Load Routes
 const index = require('./routes/index');
