@@ -41,7 +41,7 @@ const StorySchema = new Schema({
         type: Date,
         default: Date.now
     }
-})
+});
 
 //Create collection and add Schema
 mongoose.model('stories', StorySchema, 'stories');
