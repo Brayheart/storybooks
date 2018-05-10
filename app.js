@@ -28,7 +28,8 @@ const {
     truncate,
     stripTags,
     formatDate,
-    select
+    select,
+    editIcon
 } = require('./helpers/hbs');
 
 //Map Global Promises
@@ -53,7 +54,8 @@ app.engine('handlebars', exphbs({
         truncate: truncate,
         stripTags: stripTags,
         formatDate: formatDate,
-        select: select
+        select: select,
+        editIcon: editIcon
     },
     defaultLayout: 'main'
 }));
@@ -84,7 +86,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Use Routes
 app.use('/', index);
 app.use('/auth', auth);
-console.log('here')
 app.use('/stories', stories);
 
 const port = process.env.PORT || 3000 
