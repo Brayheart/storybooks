@@ -12,7 +12,7 @@ const passport = require('passport');
 require('./models/User');
 require('./models/Story');
 
-//Passport Config
+//Passport Configgit
 require('./config/passport')(passport);
 
 //Load Routes
