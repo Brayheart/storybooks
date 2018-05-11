@@ -9,8 +9,8 @@ const session = require('express-session');
 const passport = require('passport');
 
 //Load Models
-require('./models/user');  
-require('./models/story');
+require('./models/user.js');  
+require('./models/story.js');
 
 //Passport Config
 require('./config/passport')(passport);
